@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop 
+				http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<aop:aspectj-autoproxy/>
+
+	<bean id="customer" class="com.spring.Customer"></bean>
+	<bean id="loggingAspect" class="com.spring.aop.LoggingAspect"></bean>
+
+	<!-- AOP Start -->
+	<aop:config>
+		<aop:aspect id="aspectLogging" ref="loggingAspect">
+			
+			<aop:pointcut expression="execution(* com.spring.Customer.addCustomer(..))" id="pointCutBefore"/>
+			<aop:before method="logBeforeXML" pointcut-ref="pointCutBefore"/>
+
+			<aop:pointcut expression="execution(* com.spring.Customer.deleteCustomer(..))" id="pointCutAfter"/>
+			<aop:after method="logAfter" pointcut-ref="pointCutAfter"/>			
+			
+			<aop:pointcut expression="execution(* com.spring.Customer.*(..))" id="pointCutThrow"/>
+			<aop:after-throwing method="logAfterThrowing" pointcut-ref="pointCutThrow" throwing="error"/>
+			
+			<aop:pointcut expression="execution(* com.spring.Customer.showCustomerDetails(..))" id="pointCutAfterReturning"/>
+			<aop:after-returning method="logAfterReturning" pointcut-ref="pointCutAfterReturning" returning="result"/>
+			
+			<aop:pointcut expression="execution(* com.spring.Customer.*(..))" id="pointCutAround"/>
+			<aop:around method="logAround" pointcut-ref="pointCutAround"/>
+			
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- AOP End -->
+</beans>  
