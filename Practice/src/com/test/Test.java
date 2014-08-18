@@ -22,11 +22,15 @@ public class Test {
 		
 		System.out.println(" equals( ) comparison for StringLiterals: " + (ss1==(s1)));
 		System.out.println(" equals( ) comparison for StringLiterals: " + (ss1.equals(s1)));*/
-			
-		
+		Boolean b;
+		String c;
+		byte s = (byte)127;
+		System.out.println(s);
+	
 		StringBuffer sb = new StringBuffer("Hello");
 		print(sb);
 		System.out.println(sb);
+		System.out.println(sb.equals(null));
 	
 	// Part I – primitive data types
 	/*int i = 25;

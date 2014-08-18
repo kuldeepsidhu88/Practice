@@ -13,7 +13,7 @@ public class SpringDemo {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		/*Student stu = (Student) ctx.getBean("studentbean1") ;
+		Student stu = (Student) ctx.getBean("studentbean1") ;
 		stu.showData();
 		System.out.println("--------------");
 		Student stu2 = (Student) ctx.getBean("studentbean2") ;
@@ -27,7 +27,7 @@ public class SpringDemo {
 		stuProxy2.showAddress();
 		stuProxy2.showGrades();
 		stuProxy2.showException("Student Proxy 2");
-		System.out.println("--------------");*/
+		System.out.println("--------------");
 		
 		/*Student stuProxy = (Student) ctx.getBean("studentProxyBean") ;
 		stuProxy.showData();
@@ -52,7 +52,7 @@ public class SpringDemo {
 		stuProxyRegEx.showException("Student Proxy RegEx");
 		System.out.println("--------------");*/
 		
-		Customer cust = (Customer)ctx.getBean("customer");
+		/*Customer cust = (Customer)ctx.getBean("customer");
 		cust.addCustomer();
 		System.out.println("**********");
 		cust.deleteCustomer();
@@ -62,7 +62,7 @@ public class SpringDemo {
 		cust.updateCustomer();
 		System.out.println("**********");
 		cust.showCustomerPin(1234);
-		System.out.println("**********");
+		System.out.println("**********");*/
 		
 	}
 }
