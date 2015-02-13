@@ -1,4 +1,4 @@
-Collections
+Collections - 
 
 A name beginning with Hash uses a hashing and mapping strategy internally, although the key values usually have no meaning (the hashing approach attempts to provide an efficient and approximately equal lookup time for any element).
 A name beginning with Linked uses a linking strategy to preserve the order of insertion and is optimized for insertion/deletion as opposed to appending or iterating.
@@ -77,7 +77,7 @@ It cannot have null key but can have multiple null values.
 It is same as HashMap instead maintains ascending order.
 TreeMap is implemented based on red-black tree structure, and it is ordered by the key.
 If key of the TreeMap is self-defined objects, then it object should implement Comparable interface otherwise exception will be thrown.
-TreeMaps are sorted by keys, the object for key has to be able to compare with each other, that’s why it has to implement Comparable interface.If you use String as key, because String implements Comparable interface.
+TreeMaps are sorted by keys, the object for key has to be able to compare with each other, thatâ€™s why it has to implement Comparable interface.If you use String as key, because String implements Comparable interface.
 
 Hashtable
 Hashtable is synchronized, in contrast to HashMap.
