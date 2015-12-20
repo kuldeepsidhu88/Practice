@@ -1,0 +1,40 @@
+Overloadig vs Overriding
+Overloading 
+- having more than one method same name but different signature in same class
+- return type can be different 
+- Return type is not part of method signature in Java.
+- if only return type changed - compile time error - duplicate method
+- Args can differ in datatype, number or order
+- method to be called decided at compile time / static binding
+- static method can be overloaded in java
+- private and final method can be overload in java
+- Throwing exceptions - Overloaded method in Java doesn’t have such restriction and you are free to modify throws clause as per your need.
+
+Overriding
+- should be present in child class
+- method signature remains exactly same including return type,no of args,type and order
+- Overriding method can not throw higher Exception - only applies to checked exceptions
+- Overriding method can not reduce accessibility of overridden method , means if original or overridden method is public than overriding method can not make it protected.
+- method to be called decided at runtime by JVM based upon object- dynamic binding
+- static method cannot be overridden bcoz they are associated with Class rather than object and bonded during compile time-reason
+- private and final method cannot be overridden
+- always user @Override annotation
+- as of Java 5, you're allowed to change the return type in the overriding method as long as the new return type is a subtype of the declared return type of the overridden (super class) method- this is known as covariant return
+
+
+Difference
+- In case of method overloading in Java, Signature of method changes while in case of method overriding it remain same.
+- You can overload method in one class but overriding can only be done on subclass.
+- You can not override static, final and private method in Java but you can overload static, final or private method in Java.
+- Overloaded method in Java is bonded by static binding and overridden methods are subject to dynamic binding.
+- Throwing exceptions - overridden method exception can be of subclass, in overloading you can throw any type of exceptions.
+
+
+Both overloaded and overridden method has same name in Java.
+
+1. Real object type, not the reference variable’s type, determines which overridden method is used at runtime.
+2. Reference type determines which overloaded method will be used at compile time.
+3. Polymorphism applies to overriding, not to overloading.
+
+http://javarevisited.blogspot.com.au/2013/01/java-best-practices-method-overloading-constructor.html
+

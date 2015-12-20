@@ -1,0 +1,84 @@
+Thread
+A thread is a lightweight subprocess, a smallest unit of processing. It is a separate path of execution. It shares the memory area of process.
+Cost of communication between the thread is low.
+A thread cannot exist on its own; it must be a part of a process
+
+Life cycle of a Thread (Thread States)
+New
+Runnable
+Running
+Non-Runnable (Blocked)
+Terminated
+
+New
+-The thread is in new state if you create an instance of Thread class but before the invocation of start() method.
+
+Runnable
+-The thread is in runnable state after invocation of start() method, but the thread scheduler has not selected it to be the running thread.
+
+Running
+-The thread is in running state if the thread scheduler has selected it.
+
+Non-Runnable(Blocked)
+This is the state when the thread is still alive, but is currently not eligible to run.
+
+Terminated
+-A thread is in terminated or dead state when its run() method exits.
+
+Two ways to create thread-
+- By extending Thread classs
+- By implementing Runnable interface
+
+Runnable interface
+- only one method public void run()- acutal logic goes here
+
+Starting Thread
+start() method of Thread class is used to start a newly created thread. It performs following tasks:
+A new thread starts(with new callstack).
+The thread moves from New state to the Runnable state.
+When the thread gets a chance to execute, its target run() method will run.
+
+If we try to call start method twice - gives IllegalThreadStateException execption.
+
+run() method directly instead of start() method
+- each thread starts in a separate call stack
+- invoking run() will not create a new thread.
+
+sleep() - for sleeping a thread for specificed milliseconds
+join() - join method waits for a thread to  die
+yeild() - 
+
+Thread Priority
+each thread has a priority. a number b/w 1 and 10
+public static int MIN_PRIORITY - 1
+public static int NORM_PRIORITY - 5
+public static int MAX_PRIORITY - 10
+
+Daemon Thread 
+- service provider thread. when all user threads dies, JVM terminates daemon thread
+- it is low priority thread
+- It provides services to user threads for background supporting tasks.
+
+Thread Pooling
+- Group of threads waiting for the job. Fixed size threads are created.
+- better performance - saves time bcoz there is no need to create a new thread
+- used in servlets and jsp where container creates a thread pool to process the request
+
+
+synchronized  keyword
+-synchronized keyword can be applied to static/non-static methods or a block of code. Only one thread at a time can access synchronized methods and if there are multiple threads trying to access the same method then other threads have to wait for the execution of method by one thread. Synchronized keyword provides a lock on the object and thus prevents race condition. E.g.
+
+public void synchronized method(){}  
+public void synchronized staticmethod(){}
+public void myMethod(){
+
+            synchronized (this){             // synchronized keyword on block of  code
+            }
+
+}
+
+when we apply synchronized to non static method - lock is obtained on the object
+and in case of static method - lock is obtained on the class
+
+volatile keyword
+-when variable is volatile, then it will not be stored in the local cache. Whenever thread are updating the values, it is updated to the main memory. So, other threads can access the updated value
